@@ -1,0 +1,163 @@
+% *******************************************************
+% *******************************************************
+%
+% Copyright 2014 Benjamin Tovar Cisneros <https://github.com/TATABOX42>
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+% MA 02110-1301, USA.
+%
+% *******************************************************
+% contact: benjamin.tovarcis@gmail.com
+% *******************************************************
+
+% set document class
+\documentclass[a4paper,12pt]{report}
+% load document packages
+\usepackage{class//thesis}
+% load space package
+\usepackage{setspace}
+
+% *******************************
+% set variables
+% *******************************
+
+	% set the author's name (First Middle ­Last ­Name)
+	\newcommand{\authorName}{Arthur Philip Dent}
+	% set the author's school program
+	\newcommand{\schoolProgram}{Master of Science in Intelligent Systems}
+	% set the thesis name
+	\newcommand{\thesisTitle}{
+								APPLICATION OF EVOLUTIONARY ALGORITHMS 
+								TO SOLVE THE INFINITE MONKEY THEOREM
+	  					}
+
+	% set the school name
+	\newcommand{\schoolName}{Instituto Tecnológico y de Estudios Superiores de Monterrey}
+	\newcommand{\schoolCampus}{Campus Monterrey}
+	% set the department name
+	\newcommand{\schoolDepartment}{School of Engineering and Sciences}
+	% set school other details:
+	\newcommand{\schoolPlace}{Monterrey, N.L.}
+	\newcommand{\thesisDate}{December, 2014}
+	\newcommand{\thesisYear}{2014}
+	% extra stuff
+	\author{\authorName}
+	\title{\thesisTitle}
+
+	% *******************************
+	% set variables for thesis committee 
+	% *******************************
+
+	% 1st adviser variables (Dr. First Middle ­Last ­Name)
+	\newcommand{\firstAdvisorName}{Dr. Principal Adviser}
+	\newcommand{\firstAdvisorSchoolName}{\schoolName}
+	\newcommand{\firstAdvisorSchoolDepartment}{\schoolDepartment}
+	\newcommand{\firstAdvisorSchoolPlace}{\schoolPlace}
+
+	% 2nd adviser variables (Dr. First Middle ­Last ­Name)
+	\newcommand{\secondAdvisorName}{Dr. Adviser Number Two}
+	\newcommand{\secondAdvisorSchoolName}{\schoolName}
+	\newcommand{\secondAdvisorSchoolPlace}{\schoolPlace}
+
+	% 3rd adviser variables (Dr. First Middle ­Last ­Name)
+	\newcommand{\thirdAdvisorName}{Dr. Adviser Number Three}
+	\newcommand{\thirdAdvisorSchoolName}{University of California, San Diego}
+	\newcommand{\thirdAdvisorSchoolPlace}{San Diego, United States of America}
+
+	% Program director variables (Dr. First Middle ­Last ­Name)
+	\newcommand{\programDirectorName}{Dr. Jorge Welti Chanes}
+	\newcommand{\programDirectorRole}{Associate Dean of Graduate Studies}
+
+% *******************************************************
+% *******************************************************
+% Begin the document 
+% NOTE: Do not move unless you want to change
+% the order of chapters.
+% *******************************************************
+% *******************************************************
+
+\begin{document}
+	% import thesis cover: 
+		\thispagestyle{empty} 
+		\include{chapters/format/cover} 
+		\newpage
+	% load thesis committee:
+		\thispagestyle{empty} 
+		\include{chapters/format/commitee} 
+		\include{chapters/format/declaration_authorship} 
+		\newpage
+	% set the numeric indexing to be roman
+		\pagestyle{headings}
+		\setcounter{page}{1}
+		\pagenumbering{roman}
+	% load dedicatory page
+		\include{chapters/content/dedicatory}
+	% load acknowledgments page
+	  \include{chapters/content/acknowledgments}
+	% Insert blank page
+    \clearpage
+		% \thispagestyle{empty}
+		\hfill
+		\clearpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% include abstract
+		\include{chapters/content/abstract}
+	% list of figures
+		\listoffigures
+		\addcontentsline{toc}{chapter}{List of Figures}
+		\newpage
+	% list of tables
+		\listoftables
+		\addcontentsline{toc}{chapter}{List of Tables}
+		\newpage
+	% Index of contents
+		{\pagestyle{plain}
+		\tableofcontents
+		\cleardoublepage}
+		\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% change the numeration of pages to Arabic starting from number 1
+		\pagestyle{headings}
+		\setcounter{page}{1}
+		\pagenumbering{arabic}
+		\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% set space to one and half spacing:  
+	\onehalfspacing
+
+	% import text:
+	% ********************** PART 1
+		\include{chapters/content/introduction}
+		\include{chapters/content/background}
+	% % ********************** PART 2
+		\include{chapters/content/materials_and_methods}
+		\include{chapters/content/results}
+		\include{chapters/content/discussion} 
+		\include{chapters/content/conclusions_future_work}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Load bibliography style :
+	% ieeetr is IEEE format
+		\bibliographystyle{ieeetr}
+	% Load bibliography file :
+		\bibliography{bibliography/references}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% add vita
+		\include{chapters/content/vita}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+

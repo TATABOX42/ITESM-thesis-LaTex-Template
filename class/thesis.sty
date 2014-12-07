@@ -1,0 +1,105 @@
+% *******************************************************
+% *******************************************************
+%
+% Copyright 2014 Benjamin Tovar Cisneros <https://github.com/TATABOX42>
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+% MA 02110-1301, USA.
+%
+% *******************************************************
+% contact: benjamin.tovarcis@gmail.com
+% *******************************************************
+
+
+% Load packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+% load import graphics package
+\usepackage{graphicx}
+% math formulas
+\usepackage{amsmath, amsthm, amssymb}
+% Page margins:
+\usepackage[left=1.30in,top=1.2in,right=0.78in,bottom=1.2in]{geometry}
+% hierarchy for the indexing
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\usepackage{blindtext}
+% Path for images
+\graphicspath{{images//}}
+% load color libraries
+\usepackage{color}
+\usepackage{xcolor}
+% load references package
+%\usepackage{hyperref}
+\usepackage[colorlinks=true]{hyperref}
+% comment this section to use the default
+% settings of hyperref (show color links)
+\hypersetup{
+   colorlinks,
+   citecolor=black,
+   filecolor=black,
+   linkcolor=black,
+   urlcolor=black
+}
+
+% hyphenation configuration
+\tolerance=10000
+\hyphenpenalty=10000
+
+% *******************************************************
+% settings to numerate the bibliography as a chapter
+% *******************************************************
+
+\makeatletter
+    \renewenvironment{thebibliography}[1]
+         {\chapter{\bibname}%
+%          \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+          \list{\@biblabel{\@arabic\c@enumiv}}%
+               {\settowidth\labelwidth{\@biblabel{#1}}%
+                \leftmargin\labelwidth
+                \advance\leftmargin\labelsep
+                \@openbib@code
+                \usecounter{enumiv}%
+                \let\p@enumiv\@empty
+                \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+          \sloppy
+          \clubpenalty4000
+          \@clubpenalty \clubpenalty
+          \widowpenalty4000%
+          \sfcode`\.\@m}
+         {\def\@noitemerr
+           {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+
+% **************
+% Declare this space character 
+% **************
+\DeclareUnicodeCharacter{00A0}{ }
+
+% **********************************************
+% set vita footnote about the thesis.sty package
+% **********************************************
+
+\newcommand{\packageDetails}{
+  The typography of this thesis was \\
+  made with \LaTeX{} by \authorName.
+  \footnote{This thesis was compiled using \textit{thesis.sty} package. 
+  The author of the package is Benjamin Tovar Cisneros and is available at:
+  https://github.com/TATABOX42}
+}
+
+% end of settings
